@@ -3,6 +3,8 @@ import { Routes, Route } from 'react-router-dom';
 import Registration from './components/Auth/Registration';
 import Login from './components/Auth/Login';
 import Profile from './components/Patient/Profile';
+import VaccineList from './components/Patient/VaccineList';
+import PatientDetails from './components/Provider/PatientDetails';
 // import Login from './components/Auth/Login';
 // import PatientDashboard from './components/Patient/Dashboard';
 // import ProviderDashboard from './components/Provider/Dashboard';
@@ -15,6 +17,9 @@ const App = () => {
       <Route path="/register" element={<Registration />} />
       <Route path="/login" element={<Login />} />
       <Route path="/patient/profile" element={<Profile />} />
+      <Route path="/patient/vaccine-list" element={<VaccineList />} />
+      <Route path="/provider/patient-details" element={<PatientDetails />} />
+
       {/* <Route path="/login" element={<Login />} /> */}
 
       {/* Protected routes */}
