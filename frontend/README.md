@@ -1,12 +1,27 @@
-# React + Vite
+# Hospital Management System
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
+This project is a web-based Hospital Management System designed to streamline hospital operations, manage patient records, and ensure timely vaccinations. It is built using React for the frontend and Node.js with Express for the backend.
 
-Currently, two official plugins are available:
+## Features
+- User authentication and authorization for different roles (e.g., admin, patient).
+- Patient management: add, update, and view patient records.
+- Appointment scheduling and management.
+- Medical records management.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Technologies Used
+- Frontend: React, HTML, CSS, JavaScript
+- Backend: Node.js, Express.js
+- Database: MongoDB
+- Other: JWT for authentication
 
-## Expanding the ESLint configuration
+## Setup Instructions
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Prerequisites
+- Node.js and npm installed
+- (Specify database and its setup if needed)
+
+### Installation
+1. Clone the repository:
+```shell
+git clone <repository_url>
