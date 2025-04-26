@@ -8,16 +8,13 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { useNavigate } from 'react-router-dom';
 
-function createData(name, age, gender, email, status, allergies) {
-  return { name, age, email, gender, status, allergies };
+function createData(name, email) {
+  return { name, email };
 }
 
 const rows = [
-  createData('Sundaram', 28, 'M', 'sundar833@gmail.com', 'new', 'none'),
-  createData('Kirthi', 23, 'M', 'kirthi833@gmail.com', 'existing', 'skin'),
-  createData('Harsh', 16, 'M', 'harsh833@gmail.com', 'new', 'none'),
-  createData('Payal', 40, 'F', 'payal833@gmail.com', 'existing', 'rashes'),
-  createData('Ashok', 35, 'M', 'ashok833@gmail.com', 'new', 'none'),
+  createData('Sundaram', 'sundar833@gmail.com'),
+  createData('Kirthi', 'kirthi833@gmail.com'),
 ];
 
 export default function PatientList() {
@@ -28,11 +25,7 @@ export default function PatientList() {
         <TableHead>
           <TableRow>
             <TableCell>Patient Name</TableCell>
-            <TableCell>Age</TableCell>
-            <TableCell>Gender</TableCell>
             <TableCell>Email</TableCell>
-            <TableCell>Status</TableCell>
-            <TableCell>Allergies</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -40,16 +33,12 @@ export default function PatientList() {
             <TableRow
               key={row.name}
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-              onClick={()=> {useNavigate('/patient/profile')}}
+              onClick={()=> {navigate('/provider/patient-details')}}
             >
               <TableCell component="th" scope="row">
                 {row.name}
               </TableCell>
-              <TableCell>{row.age}</TableCell>
-              <TableCell>{row.gender}</TableCell>
               <TableCell>{row.email}</TableCell>
-              <TableCell>{row.status}</TableCell>
-              <TableCell>{row.allergies}</TableCell>
             </TableRow>
           ))}
         </TableBody>
