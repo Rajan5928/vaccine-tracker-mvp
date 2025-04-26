@@ -14,6 +14,7 @@ import {
   Button,
 } from '@mui/material';
 import axios from '../../utils/api';
+import Navbar from '../shared/navbar';
 
 const PatientDetails = () => {
   const [vaccines, setVaccines] = useState([
@@ -99,9 +100,11 @@ const PatientDetails = () => {
   }
 
   return (
+    <>
+    <Navbar/>
     <Box sx={{ p: 4 }}>
       <Typography variant="h5" gutterBottom color='black' >
-        Vaccination Schedule & Status
+        Vaccination Schedule & Status : Sankerdas
       </Typography>
 
       <TableContainer component={Paper}>
@@ -136,6 +139,7 @@ const PatientDetails = () => {
         </Table>
       </TableContainer>
     </Box>
+    </>
   );
 };
 

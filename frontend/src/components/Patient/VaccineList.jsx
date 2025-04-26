@@ -13,6 +13,7 @@ import {
   CircularProgress,
 } from '@mui/material';
 import axios from '../../utils/api';
+import Navbar from '../shared/navbar';
 
 const VaccineList = () => {
   const [vaccines, setVaccines] = useState([
@@ -94,6 +95,8 @@ const VaccineList = () => {
   }
 
   return (
+    <>
+    <Navbar/>
     <Box sx={{ p: 4 }}>
       <Typography variant="h5" gutterBottom color='black'>
         Vaccination Schedule & Status
@@ -131,6 +134,7 @@ const VaccineList = () => {
         </Table>
       </TableContainer>
     </Box>
+    </>
   );
 };
 

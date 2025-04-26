@@ -8,6 +8,7 @@ import {
   CircularProgress,
 } from '@mui/material';
 import axios from '../../utils/api';
+import Navbar from '../shared/navbar';
 
 const Profile = () => {
   const [loading, setLoading] = useState(true);
@@ -66,6 +67,8 @@ const Profile = () => {
   }
 
   return (
+    <>
+    <Navbar/>
     <Box
       sx={{
         minHeight: '100vh',
@@ -142,7 +145,9 @@ const Profile = () => {
           </Button>
         </form>
       </Paper>
-    </Box>
+    </Box>    
+    </>
+
   );
 };
 

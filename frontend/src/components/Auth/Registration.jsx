@@ -13,7 +13,7 @@ import {
   Paper,
 } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
-import axios from '../../utils/api';
+// import axios from '../../utils/api';
 
 const Registration = () => {
   const [form, setForm] = useState({
@@ -21,7 +21,6 @@ const Registration = () => {
     email: '',
     password: '',
     role: 'patient',
-    consent: false,
   });
 
   const navigate = useNavigate();
@@ -33,23 +32,20 @@ const Registration = () => {
       [name]: type === 'checkbox' ? checked : value,
     }));
   };
-
   const handleSubmit = async (e) => {
+    localStorage.setItem('role', form.role);
     e.preventDefault();
 
-    if (!form.consent) {
-      alert('You must consent to data usage to register.');
-      return;
-    }
+    form.role === 'patient' ? navigate("/patient/vaccine-list") : navigate("/provider/patient-list");
 
-    try {
-      await axios.post('/auth/register', form);
-      alert('Registration successful!');
-      navigate('/login');
-    } catch (err) {
-      console.error('Registration failed:', err.response?.data || err.message);
-      alert('Registration failed. Please try again.');
-    }
+    // try {
+    //   await axios.post('/auth/register', form);
+    //   alert('Registration successful!');
+    //   navigate('/login');
+    // } catch (err) {
+    //   console.error('Registration failed:', err.response?.data || err.message);
+    //   alert('Registration failed. Please try again.');
+    // }
   };
 
   return (
@@ -66,7 +62,7 @@ const Registration = () => {
           Register
         </Typography>
 
-        <form onSubmit={handleSubmit}>
+        <form>
           <TextField
             fullWidth
             label="Name"
@@ -112,23 +108,13 @@ const Registration = () => {
             </Select>
           </FormControl>
 
-          <FormControlLabel
-            control={
-              <Checkbox
-                checked={form.consent}
-                onChange={handleChange}
-                name="consent"
-              />
-            }
-            label="I consent to the use of my data for vaccination tracking."
-          />
-
           <Button
             type="submit"
             fullWidth
             variant="contained"
             color="primary"
             sx={{ mt: 2 }}
+            onClick={handleSubmit}
           >
             Register
           </Button>

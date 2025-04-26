@@ -8,12 +8,10 @@ import {
   InputLabel,
   Select,
   MenuItem,
-  Checkbox,
-  FormControlLabel,
   Paper,
 } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
-import axios from '../../utils/api';
+// import axios from '../../utils/api';
 
 const Login = () => {
   const [form, setForm] = useState({
@@ -21,7 +19,6 @@ const Login = () => {
     email: '',
     password: '',
     role: 'patient',
-    consent: false,
   });
 
   const navigate = useNavigate();
@@ -35,21 +32,18 @@ const Login = () => {
   };
 
   const handleSubmit = async (e) => {
+    localStorage.setItem('role', form.role);
+    form.role === 'patient' ? navigate("/patient/vaccine-list") : navigate("/provider/patient-list");
     e.preventDefault();
 
-    if (!form.consent) {
-      alert('You must consent to data usage to register.');
-      return;
-    }
-
-    try {
-      await axios.post('/auth/register', form);
-      alert('Registration successful!');
-      navigate('/login');
-    } catch (err) {
-      console.error('Registration failed:', err.response?.data || err.message);
-      alert('Registration failed. Please try again.');
-    }
+    // try {
+    //   await axios.post('/auth/register', form);
+    //   alert('Registration successful!');
+    //   navigate('/login');
+    // } catch (err) {
+    //   console.error('Registration failed:', err.response?.data || err.message);
+    //   alert('Registration failed. Please try again.');
+    // }
   };
 
   return (
