@@ -6,6 +6,7 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import { useNavigate } from 'react-router-dom';
 
 function createData(name, age, gender, email, status, allergies) {
   return { name, age, email, gender, status, allergies };
@@ -20,6 +21,7 @@ const rows = [
 ];
 
 export default function PatientList() {
+    const navigate = useNavigate();
   return (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
@@ -38,6 +40,7 @@ export default function PatientList() {
             <TableRow
               key={row.name}
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+              onClick={()=> {useNavigate('/patient/profile')}}
             >
               <TableCell component="th" scope="row">
                 {row.name}
