@@ -21,7 +21,7 @@ const Login = () => {
     email: '',
     password: '',
     role: 'patient',
-    consent: false,
+    // consent: false,
   });
 
   const navigate = useNavigate();
@@ -37,15 +37,14 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!form.consent) {
-      alert('You must consent to data usage to register.');
-      return;
-    }
+    // if (!form.consent) {
+    //   alert('You must consent to data usage to register.');
+    //   return;
+    // }
 
     try {
-      await axios.post('/auth/register', form);
-      alert('Registration successful!');
-      navigate('/login');
+      await axios.post('/auth/login', form);
+      navigate('/patient/vaccine-list');
     } catch (err) {
       console.error('Registration failed:', err.response?.data || err.message);
       alert('Registration failed. Please try again.');

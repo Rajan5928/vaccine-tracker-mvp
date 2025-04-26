@@ -21,7 +21,7 @@ const Registration = () => {
     email: '',
     password: '',
     role: 'patient',
-    consent: false,
+    // consent: false,
   });
 
   const navigate = useNavigate();
@@ -37,10 +37,10 @@ const Registration = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!form.consent) {
-      alert('You must consent to data usage to register.');
-      return;
-    }
+    // if (!form.consent) {
+    //   alert('You must consent to data usage to register.');
+    //   return;
+    // }
 
     try {
       await axios.post('/auth/register', form);
@@ -112,7 +112,7 @@ const Registration = () => {
             </Select>
           </FormControl>
 
-          <FormControlLabel
+          {/* <FormControlLabel
             control={
               <Checkbox
                 checked={form.consent}
@@ -121,7 +121,7 @@ const Registration = () => {
               />
             }
             label="I consent to the use of my data for vaccination tracking."
-          />
+          /> */}
 
           <Button
             type="submit"
